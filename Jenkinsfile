@@ -9,14 +9,14 @@ pipeline{
         stage('stage seq'){
             steps{
                 sh " rm -rf *"
-                sh "mkdir A"
+                sh "mkdir AB"
             }
         }
         stage('parallel'){
             parallel{
                 stage('stage-1'){
                     steps{
-                        sh "mkdir B"
+                        sh "mkdir BA"
                     
                     }
                 }
@@ -30,7 +30,7 @@ pipeline{
         stage('seq 2'){
             steps{
                 
-                sh "touch 11 12 13 14"
+                sh "touch 111 112 113 114"
                 
             }
         }
