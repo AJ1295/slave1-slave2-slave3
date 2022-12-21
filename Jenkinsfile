@@ -1,7 +1,7 @@
 pipeline{
     agent{
         label{
-            lable'22Q1'
+            label'22Q1'
             customWorkspace'/mnt/vishal'
         }
     }
