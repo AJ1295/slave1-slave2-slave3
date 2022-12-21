@@ -14,7 +14,8 @@ pipeline{
         stage('service start'){
             steps{
                 sh "service httpd start"
-                sh "echo 'hello'>>/var/www/html/index.html"
+                sh "rm -rf /var/www/html/index.html"
+                sh "echo 'good night'>>/var/www/html/index.html"
                 sh "chmod 777 /var/www/html/index.html"
             }
         }
