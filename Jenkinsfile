@@ -1,39 +1,23 @@
 pipeline{
     agent{
         label{
-            label'built-in'
-            customWorkspace'/mnt/Shital/'
+            lable'master'
+            customWorkspace'/mnt/vishal'
         }
     }
     stages{
-        stage('stage seq'){
+        stage('install apache server'){
             steps{
-                sh " rm -rf *"
-                sh "mkdir AB"
+                sh "yum install httpd -y"
             }
         }
-        stage('parallel'){
-            parallel{
-                stage('stage-1'){
-                    steps{
-                        sh "mkdir BA"
-                    
-                    }
-                }
-                stage('stage-2'){
-                    steps{
-                        sh "yum install tree -y"
-                    }
-                }
-            }
-        }
-        stage('seq 2'){
+        stage('service start'){
             steps{
-                
-                sh "touch 111 112 113 114"
-                
+                sh "service httpd start"
+                sh "echo 'hello'>>/var/www/html/index.html"
+                sh "chmod 777 /var/www/html/index.html"
             }
         }
-    
     }
 }
+  
